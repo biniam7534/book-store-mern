@@ -11,6 +11,16 @@ import lionOfGazeImg from '../assets/lion of gaze.jpg';
 import theBeautifulImg from '../assets/the-beautiful.jpg';
 import burkaZemetaImg from '../assets/burka zemeta.jpg';
 
+// New images added by user
+import shopping2Img from '../assets/shopping (2).avif';
+import shoppingImg from '../assets/shopping.avif';
+import shoppingWebp from '../assets/shopping.webp';
+import waxAndGoldImg from '../assets/wax and gold.png';
+import downloadImg from '../assets/download.jpeg';
+import download1Img from '../assets/download (1).jpeg';
+import hacker3Img from '../assets/hacker3).avif';
+import millionerImg from '../assets/millioner.jpeg';
+
 const Books = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -70,6 +80,62 @@ const Books = () => {
             author: "Sun Tzu",
             image: burkaZemetaImg,
             category: "Strategy"
+        },
+        {
+            id: 9,
+            title: "Wax and Gold",
+            author: "Donald N. Levine",
+            image: waxAndGoldImg,
+            category: "History"
+        },
+        {
+            id: 10,
+            title: "Shopping Experience",
+            author: "Retail Expert",
+            image: shoppingImg,
+            category: "Business"
+        },
+        {
+            id: 11,
+            title: "Consumer Guide",
+            author: "Buyer Advisor",
+            image: shopping2Img,
+            category: "Lifestyle"
+        },
+        {
+            id: 12,
+            title: "Web Shopping",
+            author: "Online Store",
+            image: shoppingWebp,
+            category: "Technology"
+        },
+        {
+            id: 13,
+            title: "Downloaded Journey",
+            author: "Anonymous",
+            image: downloadImg,
+            category: "Adventure"
+        },
+        {
+            id: 14,
+            title: "Second Download",
+            author: "Unknown Source",
+            image: download1Img,
+            category: "Mystery"
+        },
+        {
+            id: 15,
+            title: "Hacker's Handbook",
+            author: "Cyber Specialist",
+            image: hacker3Img,
+            category: "Technology"
+        },
+        {
+            id: 16,
+            title: "The Millionaire Mind",
+            author: "Wealth Coach",
+            image: millionerImg,
+            category: "Business"
         }
     ];
 

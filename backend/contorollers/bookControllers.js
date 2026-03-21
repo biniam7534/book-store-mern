@@ -4,13 +4,13 @@ import Book from "../models/bookModel.js";
 // @route   POST /api/books
 export const createBook = async (req, res) => {
     try {
-        const { title, author, publishYear } = req.body;
+        const { title, author, publishYear, image, category } = req.body;
 
         if (!title || !author || !publishYear) {
             return res.status(400).json({ message: "Please provide all fields: title, author, publishYear" });
         }
 
-        const newBook = await Book.create({ title, author, publishYear });
+        const newBook = await Book.create({ title, author, publishYear, image, category });
 
         return res.status(201).json(newBook);
     } catch (error) {
@@ -58,7 +58,7 @@ export const getBookById = async (req, res) => {
 export const updateBook = async (req, res) => {
     try {
         const { id } = req.params;
-        const { title, author, publishYear } = req.body;
+        const { title, author, publishYear, image, category } = req.body;
 
         if (!title || !author || !publishYear) {
             return res.status(400).json({ message: "Please provide all fields: title, author, publishYear" });

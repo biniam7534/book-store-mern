@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import bookRoutes from "./routes/bookroutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 // Load environment variables
 dotenv.config();
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 
 // API Routes
 app.use("/api/books", bookRoutes);
+app.use("/api/orders", orderRoutes);
 
 // Connect to database and start server
 connectDB().then(() => {

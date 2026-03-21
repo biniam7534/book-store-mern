@@ -1,26 +1,27 @@
 import mongoose from "mongoose";
 
-const bookSchema = new mongoose.Schema(
+const orderSchema = new mongoose.Schema(
     {
-        title: {
+        orderId: {
             type: String,
             required: true,
         },
-        author: {
+        date: {
             type: String,
             required: true,
         },
-        publishYear: {
-            type: Number,
+        amount: {
+            type: String,
             required: true,
         },
-        image: {
+        payment: {
             type: String,
-            required: false,
+            required: true,
         },
-        category: {
+        status: {
             type: String,
-            required: false,
+            required: true,
+            default: "Processing",
         },
     },
     {
@@ -28,6 +29,6 @@ const bookSchema = new mongoose.Schema(
     }
 );
 
-const Book = mongoose.model("Book", bookSchema);
+const Order = mongoose.model("Order", orderSchema);
 
-export default Book;
+export default Order;
