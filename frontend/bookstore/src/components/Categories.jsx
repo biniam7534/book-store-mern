@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { FiStar, FiShoppingCart, FiPlus, FiMinus } from 'react-icons/fi';
 import './Categories.css';
 
-import harryPotterImg from '../assets/Book5.png';
-import hyggeImg from '../assets/Book2.png';
-import fiftyShadesImg from '../assets/Book1 (1).png';
+import harryPotterImg from '../assets/millioner.png';
+import hyggeImg from '../assets/hacker3).png';
+import fiftyShadesImg from '../assets/download.png';
 import twoTowersImg from '../assets/Book8.png';
 
 const favoriteBooks = [
     {
         id: 1,
-        title: "Harry Potter",
-        author: "J.K. Rowling",
+        title: "The Millionaire Booklet: How to Get Super Rich",
+        author: "Grant Cardone",
         price: 255.2,
         rating: 4,
         image: harryPotterImg,
@@ -19,8 +19,8 @@ const favoriteBooks = [
     },
     {
         id: 2,
-        title: "Hygge",
-        author: "Meik Wiking",
+        title: "Building Real-World Hacker Skills from Scratch",
+        author: "Kline Thornton",
         price: 289.2,
         rating: 4,
         image: hyggeImg,
@@ -28,8 +28,8 @@ const favoriteBooks = [
     },
     {
         id: 3,
-        title: "Fifty Shades Darker",
-        author: "E. L. James",
+        title: "The Sigma Male Bible: An Ultimate Guide To The Lone Wolf",
+        author: "Bud Watson",
         price: 325.2,
         rating: 5,
         image: fiftyShadesImg,

@@ -16,10 +16,10 @@ import shopping2Img from '../assets/shopping (2).avif';
 import shoppingImg from '../assets/shopping.avif';
 import shoppingWebp from '../assets/shopping.webp';
 import waxAndGoldImg from '../assets/wax and gold.png';
-import downloadImg from '../assets/download.jpeg';
+import downloadImg from '../assets/download.png';
 import download1Img from '../assets/download (1).jpeg';
-import hacker3Img from '../assets/hacker3).avif';
-import millionerImg from '../assets/millioner.jpeg';
+import hacker3Img from '../assets/hacker3).png';
+import millionerImg from '../assets/millioner.png';
 
 const Books = () => {
     const [searchTerm, setSearchTerm] = useState('');
