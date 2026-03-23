@@ -90,43 +90,6 @@ const About = () => {
                     </div>
                 </div>
             </section>
-
-            <section className="about-team section-padding">
-                <div className="container">
-                    <h2 className="team-section-title">Meet Your Literary Guides</h2>
-                    <div className="team-divider"></div>
-                    <div className="team-grid">
-                        <div className="team-member">
-                            <div className="member-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400" alt="Sarah Johnson" />
-                            </div>
-                            <div className="member-info">
-                                <h3>Sarah Johnson</h3>
-                                <p>Head of Curation</p>
-                            </div>
-                        </div>
-                        <div className="team-member">
-                            <div className="member-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400" alt="Michael Chen" />
-                            </div>
-                            <div className="member-info">
-                                <h3>Michael Chen</h3>
-                                <p>Creative Director</p>
-                            </div>
-                        </div>
-                        <div className="team-member">
-                            <div className="member-image-wrapper">
-                                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=400" alt="Emma Williams" />
-                            </div>
-                            <div className="member-info">
-                                <h3>Emma Williams</h3>
-                                <p>Lead Designer</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section className="about-sanctuaries section-padding">
                 <div className="container">
                     <h2 className="sanctuaries-title">Our Literary Sanctuaries</h2>

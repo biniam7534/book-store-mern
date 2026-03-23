@@ -24,7 +24,7 @@ const Contact = () => {
                             </div>
                             <div className="info-text">
                                 <h3>Our Location</h3>
-                                <p>123 Book Street, Library City, LC 10001</p>
+                                <p>123 Book Street, Library City, Addis Ababa, Ethiopia</p>
                             </div>
                         </div>
 
@@ -34,7 +34,7 @@ const Contact = () => {
                             </div>
                             <div className="info-text">
                                 <h3>Email Us</h3>
-                                <p>contact@bookshell.com</p>
+                                <p>biniamabuu75@gmail.com</p>
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@ const Contact = () => {
                             </div>
                             <div className="info-text">
                                 <h3>Call Us</h3>
-                                <p>+1 (555) 123-4567</p>
+                                <p>+251 975346904</p>
                             </div>
                         </div>
                     </div>
