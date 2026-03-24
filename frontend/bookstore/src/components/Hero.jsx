@@ -33,15 +33,15 @@ const Hero = () => {
 
                     <div className="hero-stats">
                         <div className="stat-item">
-                            <span className="stat-number">50k+</span>
+                            <span className="stat-number">0+</span>
                             <span className="stat-label">Titles</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">1.2M</span>
+                            <span className="stat-number">0+</span>
                             <span className="stat-label">Readers</span>
                         </div>
                         <div className="stat-item">
-                            <span className="stat-number">240+</span>
+                            <span className="stat-number">0+</span>
                             <span className="stat-label">Topics</span>
                         </div>
                     </div>

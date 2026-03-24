@@ -12,7 +12,7 @@ const favoriteBooks = [
         id: 1,
         title: "The Millionaire Booklet: How to Get Super Rich",
         author: "Grant Cardone",
-        price: 255.2,
+        price: 215.00,
         rating: 4,
         image: harryPotterImg,
         hasQty: false
@@ -21,7 +21,7 @@ const favoriteBooks = [
         id: 2,
         title: "Building Real-World Hacker Skills from Scratch",
         author: "Kline Thornton",
-        price: 289.2,
+        price: 220.99,
         rating: 4,
         image: hyggeImg,
         hasQty: true
@@ -30,7 +30,7 @@ const favoriteBooks = [
         id: 3,
         title: "The Sigma Male Bible: An Ultimate Guide To The Lone Wolf",
         author: "Bud Watson",
-        price: 325.2,
+        price: 190.99,
         rating: 5,
         image: fiftyShadesImg,
         hasQty: false

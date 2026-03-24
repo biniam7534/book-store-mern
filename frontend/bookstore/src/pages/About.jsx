@@ -30,28 +30,28 @@ const About = () => {
                         <div className="stat-icon-wrapper">
                             <FiAward className="stat-icon" />
                         </div>
-                        <h2 className="stat-value">25K+</h2>
+                        <h2 className="stat-value">0+</h2>
                         <p className="stat-name">Awards Won</p>
                     </div>
                     <div className="stat-card fade-in">
                         <div className="stat-icon-wrapper">
                             <FiUsers className="stat-icon" />
                         </div>
-                        <h2 className="stat-value">1M+</h2>
+                        <h2 className="stat-value">0+</h2>
                         <p className="stat-name">Active Readers</p>
                     </div>
                     <div className="stat-card fade-in">
                         <div className="stat-icon-wrapper">
                             <FiBookOpen className="stat-icon" />
                         </div>
-                        <h2 className="stat-value">100K+</h2>
+                        <h2 className="stat-value">0+</h2>
                         <p className="stat-name">Books Available</p>
                     </div>
                     <div className="stat-card fade-in">
                         <div className="stat-icon-wrapper">
                             <FiStar className="stat-icon" />
                         </div>
-                        <h2 className="stat-value">4.9</h2>
+                        <h2 className="stat-value">0+</h2>
                         <p className="stat-name">Average Rating</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ const About = () => {
                     <div className="story-image-container">
                         <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1000" alt="Bookstore" className="story-img" />
                         <div className="since-badge">
-                            <h3>Since 2015</h3>
+                            <h3>Since 2018</h3>
                             <p>Pioneering Digital Literature</p>
                         </div>
                     </div>

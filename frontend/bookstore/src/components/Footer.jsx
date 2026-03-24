@@ -16,7 +16,7 @@ const Footer = () => {
                         <span className="logo-text">BOOKSHELL</span>
                     </div>
                     <p className="brand-pitch">
-                        Providing the best books for your reading pleasure since 2024.
+                        Providing the best books for your reading pleasure since 2026.
                         Join our community of book lovers and discover your next favorite read.
                     </p>
                     <div className="social-links">
