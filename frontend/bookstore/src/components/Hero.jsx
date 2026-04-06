@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
+    const [query, setQuery] = useState('');
+    const navigate = useNavigate();
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (query.trim()) {
+            navigate(`/books?search=${encodeURIComponent(query.trim())}`);
+        } else {
+            navigate('/books');
+        }
+    };
     return (
         <section className="hero">
             <div className="container hero-container">
@@ -17,19 +29,21 @@ const Hero = () => {
 
                     <a href="#explore" className="explore-link">Explore</a>
 
-                    <div className="search-container">
+                    <form className="search-container" onSubmit={handleSearch}>
                         <div className="search-input-wrapper">
                             <FiSearch className="search-icon" />
                             <input
                                 type="text"
                                 placeholder="Search authors, titles, or concepts..."
                                 className="search-input"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
                             />
                         </div>
-                        <button className="search-btn">
+                        <button type="submit" className="search-btn">
                             <FiSearch />
                         </button>
-                    </div>
+                    </form>
 
                     <div className="hero-stats">
                         <div className="stat-item">

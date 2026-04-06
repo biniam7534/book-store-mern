@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiSearch, FiFilter, FiChevronDown, FiShoppingCart } from 'react-icons/fi';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useCart } from '../context/CartContext';
 import './Books.css';
@@ -24,7 +25,29 @@ import hacker3Img from '../assets/hacker3).png';
 import millionerImg from '../assets/millioner.png';
 
 const Books = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+    const location = useLocation();
+    const navigate = useNavigate();
+    const queryParams = new URLSearchParams(location.search);
+    const initialSearch = queryParams.get('search') || '';
+
+    const [searchTerm, setSearchTerm] = useState(initialSearch);
+
+    useEffect(() => {
+        const query = new URLSearchParams(location.search).get('search');
+        if (query !== null) {
+            setSearchTerm(query);
+        }
+    }, [location.search]);
+
+    const handleSearchChange = (e) => {
+        const value = e.target.value;
+        setSearchTerm(value);
+        if (value.trim()) {
+            navigate(`/books?search=${encodeURIComponent(value)}`, { replace: true });
+        } else {
+            navigate('/books', { replace: true });
+        }
+    };
 
     const books = [
         {
@@ -163,7 +186,9 @@ const Books = () => {
     // Apply search filter
     const filteredBooks = displayBooks.filter(book =>
         (book.title && book.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
-        (book.author && book.author.toLowerCase().includes(searchTerm.toLowerCase()))
+        (book.author && book.author.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (book.category && book.category.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (book.description && book.description.toLowerCase().includes(searchTerm.toLowerCase()))
     );
 
     return (
@@ -181,7 +206,7 @@ const Books = () => {
                                 placeholder="Search titles, authors..."
                                 className="books-search-input"
                                 value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onChange={handleSearchChange}
                             />
                         </div>
 
