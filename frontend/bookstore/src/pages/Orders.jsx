@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { FiArrowLeft, FiTrash2, FiPlus, FiMinus, FiShoppingBag } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useCart } from '../context/CartContext';
 import './Orders.css';
 
 import book1Img from '../assets/download.png';
@@ -8,47 +10,32 @@ import book2Img from '../assets/hacker3).png';
 
 const Orders = () => {
     const navigate = useNavigate();
-
-    // Mock cart state
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            title: "The Sigma Male Bible: An Ultimate Guide To The Lone Wolf",
-            author: "Bud Watson",
-            price: 190.99,
-            quantity: 1,
-            image: book1Img
-        },
-        {
-            id: 2,
-            title: "Building Real-World Hacker Skills from Scratch",
-            author: "Kline Thornton",
-            price: 220.99,
-            quantity: 2,
-            image: book2Img
-        }
-    ]);
-
-    const updateQuantity = (id, delta) => {
-        setCartItems(prevItems =>
-            prevItems.map(item => {
-                if (item.id === id) {
-                    const newQuantity = item.quantity + delta;
-                    // Don't let quantity go below 1
-                    return { ...item, quantity: Math.max(1, newQuantity) };
-                }
-                return item;
-            })
-        );
-    };
-
-    const removeItem = (id) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== id));
-    };
+    const { cartItems, updateQuantity, removeItem, clearCart } = useCart();
 
     const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const tax = subtotal * 0.15; // 15% mock tax
     const totalAmount = subtotal + tax;
+
+    const handleCheckout = async () => {
+        if (cartItems.length === 0) return;
+        try {
+            const orderData = {
+                orderId: `ORD-${Math.floor(Math.random() * 1000000)}`,
+                date: new Date().toISOString().split('T')[0],
+                amount: totalAmount.toFixed(2),
+                payment: "Card",
+                status: "Processing"
+            };
+            const response = await axios.post("http://localhost:5555/api/orders", orderData);
+            if (response.status === 201) {
+                alert("Order created successfully!");
+                clearCart();
+            }
+        } catch (error) {
+            console.error("Error creating order", error);
+            alert("Failed to place order.");
+        }
+    };
 
     return (
         <div className="orders-page">
@@ -77,18 +64,18 @@ const Orders = () => {
 
                                     <div className="cart-item-actions">
                                         <div className="quantity-controls">
-                                            <button className="qty-btn" onClick={() => updateQuantity(item.id, -1)}>
+                                            <button className="qty-btn" onClick={() => updateQuantity(item.id || item._id, -1)}>
                                                 <FiMinus />
                                             </button>
                                             <span className="qty-value">{item.quantity}</span>
-                                            <button className="qty-btn" onClick={() => updateQuantity(item.id, 1)}>
+                                            <button className="qty-btn" onClick={() => updateQuantity(item.id || item._id, 1)}>
                                                 <FiPlus />
                                             </button>
                                         </div>
                                         <div className="cart-item-total">
                                             ETB {(item.price * item.quantity).toFixed(2)}
                                         </div>
-                                        <button className="remove-btn" onClick={() => removeItem(item.id)} title="Remove item">
+                                        <button className="remove-btn" onClick={() => removeItem(item.id || item._id)} title="Remove item">
                                             <FiTrash2 />
                                         </button>
                                     </div>
@@ -112,7 +99,7 @@ const Orders = () => {
                                 <span>ETB {totalAmount.toFixed(2)}</span>
                             </div>
 
-                            <button className="checkout-btn">
+                            <button className="checkout-btn" onClick={handleCheckout}>
                                 Proceed to Checkout <FiShoppingBag />
                             </button>
                         </div>

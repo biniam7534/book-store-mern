@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { FiSearch, FiFilter, FiChevronDown } from 'react-icons/fi';
+import React, { useState, useEffect } from 'react';
+import { FiSearch, FiFilter, FiChevronDown, FiShoppingCart } from 'react-icons/fi';
+import axios from 'axios';
+import { useCart } from '../context/CartContext';
 import './Books.css';
 
 import adfressImg from '../assets/adfress.jpg';
@@ -139,6 +141,31 @@ const Books = () => {
         }
     ];
 
+    const [fetchedBooks, setFetchedBooks] = useState([]);
+    const { addToCart } = useCart();
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            try {
+                const res = await axios.get("http://localhost:5555/api/books");
+                if (res.data && res.data.data && res.data.data.length > 0) {
+                    setFetchedBooks(res.data.data);
+                }
+            } catch (error) {
+                console.error("Error fetching books:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
+
+    const displayBooks = fetchedBooks.length > 0 ? fetchedBooks : books;
+
+    // Apply search filter
+    const filteredBooks = displayBooks.filter(book =>
+        (book.title && book.title.toLowerCase().includes(searchTerm.toLowerCase())) ||
+        (book.author && book.author.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
     return (
         <div className="books-page">
             <section className="books-header section-padding">
@@ -170,7 +197,7 @@ const Books = () => {
                                 </div>
                             </div>
                             <div className="results-count">
-                                Showing 16 results
+                                Showing {filteredBooks.length} results
                             </div>
                         </div>
                     </div>
@@ -179,16 +206,18 @@ const Books = () => {
 
             <section className="books-grid-section container">
                 <div className="books-grid">
-                    {books.map(book => (
-                        <div key={book.id} className="book-card scale-in">
+                    {filteredBooks.map(book => (
+                        <div key={book.id || book._id} className="book-card scale-in">
                             <div className="book-image">
-                                <img src={book.image} alt={book.title} />
+                                <img src={book.image || imagePng} alt={book.title} />
                                 <div className="book-overlay">
-                                    <button className="view-details-btn">View Details</button>
+                                    <button className="view-details-btn" onClick={() => { addToCart(book); alert('Added to cart!'); }}>
+                                        <FiShoppingCart /> Add to Cart
+                                    </button>
                                 </div>
                             </div>
                             <div className="book-info">
-                                <span className="book-category">{book.category}</span>
+                                <span className="book-category">{book.category || 'General'}</span>
                                 <h3 className="book-title">{book.title}</h3>
                                 <p className="book-author">{book.author}</p>
                             </div>

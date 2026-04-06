@@ -7,23 +7,26 @@ import About from './pages/About';
 import Books from './pages/Books';
 import Contact from './pages/Contact';
 import Orders from './pages/Orders';
+import { CartProvider } from './context/CartContext';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="app">
-      <Navbar />
-      <div className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/books" element={<Books />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/orders" element={<Orders />} />
-        </Routes>
+    <CartProvider>
+      <div className="app">
+        <Navbar />
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/books" element={<Books />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/orders" element={<Orders />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </CartProvider>
   );
 }
 

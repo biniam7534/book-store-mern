@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FiChevronLeft, FiChevronRight, FiStar, FiShoppingCart } from 'react-icons/fi';
+import axios from 'axios';
+import { useCart } from '../context/CartContext';
 import './FeaturedBooks.css';
 
 import book1Img from '../assets/download.png'; // Correct book cover for Twilight Fortress
@@ -74,7 +76,25 @@ const featuredBooks = [
 ];
 
 const FeaturedBooks = () => {
-    const sliderRef = React.useRef(null);
+    const sliderRef = useRef(null);
+    const [fetchedFeatured, setFetchedFeatured] = useState([]);
+    const { addToCart } = useCart();
+
+    useEffect(() => {
+        const fetchBooks = async () => {
+            try {
+                const res = await axios.get("http://localhost:5555/api/books");
+                if (res.data && res.data.data && res.data.data.length > 0) {
+                    setFetchedFeatured(res.data.data.slice(0, 6)); // Display up to 6
+                }
+            } catch (error) {
+                console.error("Error fetching featured books:", error);
+            }
+        };
+        fetchBooks();
+    }, []);
+
+    const displayFeatured = fetchedFeatured.length > 0 ? fetchedFeatured : featuredBooks;
 
     const scroll = (direction) => {
         if (sliderRef.current) {
@@ -99,11 +119,11 @@ const FeaturedBooks = () => {
                 </div>
 
                 <div className="books-slider" ref={sliderRef}>
-                    {featuredBooks.map(book => (
+                    {displayFeatured.map(book => (
                         <div
-                            key={book.id}
+                            key={book.id || book._id}
                             className="featured-card"
-                            style={{ backgroundColor: book.bgColor }}
+                            style={{ backgroundColor: book.bgColor || '#fef3d5' }}
                         >
                             <div className="card-top">
                                 <div className="rating">
@@ -116,20 +136,20 @@ const FeaturedBooks = () => {
                                 </div>
                                 <h3 className="book-title">{book.title}</h3>
                                 <p className="book-author">{book.author}</p>
-                                <p className="book-description">{book.description}</p>
+                                <p className="book-description">{book.description || `A great book by ${book.author}`}</p>
                             </div>
 
                             <div className="card-bottom">
                                 <div className="price-row">
-                                    <span className="price">ETB {book.price}</span>
+                                    <span className="price">ETB {book.price || '150.00'}</span>
                                 </div>
                                 <div className="action-row">
-                                    <button className="add-to-collection">
+                                    <button className="add-to-collection" onClick={() => { addToCart(book); alert('Added to cart!'); }}>
                                         <FiShoppingCart /> Add to Collection
                                     </button>
                                 </div>
                                 <div className="book-image-frame">
-                                    <img src={`${book.image}?t=${new Date().getTime()}`} alt={book.title} className="book-img-inner" />
+                                    <img src={book.image || book1Img} alt={book.title} className="book-img-inner" />
                                 </div>
                             </div>
                         </div>

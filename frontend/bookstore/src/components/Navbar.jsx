@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiShoppingCart, FiUser, FiInfo, FiBook, FiMail, FiPackage, FiMenu, FiX, FiHome } from 'react-icons/fi';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { cartItems } = useCart();
+    const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
     const closeMenu = () => setIsMenuOpen(false);
@@ -44,7 +47,7 @@ const Navbar = () => {
                     <div className="desktop-only action-btns">
                         <button className="icon-btn cart-btn">
                             <FiShoppingCart />
-                            <span className="cart-badge">1</span>
+                            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                         </button>
                         <button className="icon-btn profile-btn">
                             <FiUser />
@@ -94,7 +97,7 @@ const Navbar = () => {
                     <button className="sidebar-action-btn">
                         <div className="cart-icon-wrapper">
                             <FiShoppingCart />
-                            <span className="cart-badge"></span>
+                            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
                         </div>
                     </button>
                     <button className="sidebar-action-btn">
