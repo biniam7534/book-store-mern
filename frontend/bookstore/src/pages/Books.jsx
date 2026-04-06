@@ -52,59 +52,59 @@ const Books = () => {
     const books = [
         {
             id: 1,
-            title: "Literary Foundations",
-            author: "Stacker",
+            title: "Adefress",
+            author: "Alemayehu werku",
             image: adfressImg,
-            category: "Classic"
+            category: "Novel"
         },
         {
             id: 2,
-            title: "How Innovation Works",
-            author: "Matt Ridley",
+            title: "Fikir Eske Mekabir",
+            author: "Haddis Alemayehu",
             image: fekerEskMakaberImg,
-            category: "Business"
+            category: "Novel"
         },
         {
             id: 3,
-            title: "Emma Elliot",
-            author: "Author Name",
+            title: "The Future of the Mind",
+            author: "Michio Kaku",
             image: imagePng,
-            category: "Fiction"
-        },
-        {
-            id: 4,
-            title: "Pages of Time",
-            author: "History Maker",
-            image: oromiaImg,
-            category: "History"
-        },
-        {
-            id: 5,
-            title: "Modern Design",
-            author: "Creative Mind",
-            image: ha2Img,
-            category: "Art"
-        },
-        {
-            id: 6,
-            title: "Future Tech",
-            author: "AI Explorer",
-            image: lionOfGazeImg,
-            category: "Technology"
-        },
-        {
-            id: 7,
-            title: "Nature's Whispers",
-            author: "Eco Warrior",
-            image: theBeautifulImg,
             category: "Science"
         },
         {
+            id: 4,
+            title: "Oromia",
+            author: "Baalu Girma",
+            image: oromiaImg,
+            category: "Novel"
+        },
+        {
+            id: 5,
+            title: "Thinking, Fast and Slow",
+            author: "Daniel Kahneman",
+            image: ha2Img,
+            category: "Psychology"
+        },
+        {
+            id: 6,
+            title: "The Lion of Gaze",
+            author: "Maaza Mengiste",
+            image: lionOfGazeImg,
+            category: "Novel"
+        },
+        {
+            id: 7,
+            title: "The Beautiful Things That Heaven Bears",
+            author: "Dinaw Mengestu",
+            image: theBeautifulImg,
+            category: "Dinaw Mengestu"
+        },
+        {
             id: 8,
-            title: "The Art of War",
-            author: "Sun Tzu",
+            title: "Burka Zemeta",
+            author: "Tasfaye Gebremedhin",
             image: burkaZemetaImg,
-            category: "Strategy"
+            category: "Novel"
         },
         {
             id: 9,
@@ -115,50 +115,50 @@ const Books = () => {
         },
         {
             id: 10,
-            title: "Shopping Experience",
-            author: "Retail Expert",
+            title: "The silent of wife",
+            author: "Kerry Fisher",
             image: shoppingImg,
-            category: "Business"
+            category: "Novel"
         },
         {
             id: 11,
-            title: "Consumer Guide",
-            author: "Buyer Advisor",
+            title: "No.1 Lawyer",
+            author: "james patterson & Nancy Allen",
             image: shopping2Img,
-            category: "Lifestyle"
+            category: "Thriller"
         },
         {
             id: 12,
-            title: "Web Shopping",
-            author: "Online Store",
+            title: "You Are 7 and Amazing",
+            author: "Unknown",
             image: shoppingWebp,
-            category: "Technology"
+            category: "Childern"
         },
         {
             id: 13,
-            title: "Downloaded Journey",
-            author: "Anonymous",
+            title: "The Sigma Male Bible",
+            author: "Rud Waston",
             image: downloadImg,
-            category: "Adventure"
+            category: "Personal development"
         },
         {
             id: 14,
-            title: "Second Download",
-            author: "Unknown Source",
+            title: "The Subtle Art of Not Giving a F*ck",
+            author: "Mark Manson",
             image: download1Img,
-            category: "Mystery"
+            category: "Men’s psychology"
         },
         {
             id: 15,
             title: "Hacker's Handbook",
-            author: "Cyber Specialist",
+            author: "Kline Thornton",
             image: hacker3Img,
             category: "Technology"
         },
         {
             id: 16,
-            title: "The Millionaire Mind",
-            author: "Wealth Coach",
+            title: "The Millionaire Booklet",
+            author: "Grant Cardone",
             image: millionerImg,
             category: "Business"
         }
