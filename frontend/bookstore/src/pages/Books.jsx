@@ -184,7 +184,13 @@ const Books = () => {
         fetchBooks();
     }, []);
 
-    const displayBooks = fetchedBooks.length > 0 ? fetchedBooks : books;
+    // Combine hardcoded mock books with fetched DB books (by avoiding exact title duplicates)
+    const displayBooks = [...books];
+    fetchedBooks.forEach(dbBook => {
+        if (!displayBooks.find(b => b.title === dbBook.title)) {
+            displayBooks.push(dbBook);
+        }
+    });
 
     const genres = [...new Set(displayBooks.map(book => book.category || 'General'))];
     const authors = [...new Set(displayBooks.map(book => book.author))].filter(Boolean);
