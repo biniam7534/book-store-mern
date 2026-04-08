@@ -11,8 +11,7 @@ import book4Img from '../assets/feker_esk_makaber.jpg';
 import book5Img from '../assets/millioner.png';
 import book6Img from '../assets/cutting for stone.jpg';
 
-// Mock data based on the latest image provided
-const featuredBooks = [
+export const featuredBooks = [
     {
         id: 1,
         title: "The Sigma Male Bible: An Ultimate Guide To The Lone Wolf",
@@ -20,6 +19,8 @@ const featuredBooks = [
         description: "A guide exploring the Sigma male personality type, focusing on independence, self-reliance, and confidence outside traditional social hierarchies.",
         price: "190.99",
         rating: 5,
+        readers: 2450,
+        topics: ["Personal development", "Men's psychology"],
         bgColor: "#dae9f2", // Light blue
         image: book1Img
     },
@@ -29,7 +30,9 @@ const featuredBooks = [
         author: "Kline Thornton",
         description: "A practical beginner-friendly guide to cybersecurity that focuses on hands-on learning. It teaches penetration testing, Wi-Fi hacking, Linux, and scripting using Python, Bash, and PowerShell while helping readers build real-world hacker skills.",
         price: "220.99",
-        rating: 5,
+        rating: 4.8,
+        readers: 4120,
+        topics: ["Technology", "Cybersecurity"],
         bgColor: "#fef3d5", // Light yellow/orange
         image: book2Img
     },
@@ -39,7 +42,9 @@ const featuredBooks = [
         author: "Dennis Lehane",
         description: "Jane McLane's latest masterpiece challenges conventional storytelling. Explore transformative narratives that...",
         price: "182.99",
-        rating: 5,
+        rating: 4.5,
+        readers: 3890,
+        topics: ["Thriller", "Mystery"],
         bgColor: "#e2f2d5", // Light green
         image: book3Img
     },
@@ -50,6 +55,8 @@ const featuredBooks = [
         description: "A legendary Ethiopian novel exploring love, class struggle, and destiny in Addis Ababa society.",
         price: "180.00",
         rating: 5,
+        readers: 8500,
+        topics: ["Novel", "History"],
         bgColor: "#f2e6d8",
         image: book4Img
     },
@@ -59,7 +66,9 @@ const featuredBooks = [
         author: "Grant Cardone",
         description: "A short, powerful guide that simplifies wealth creation into actionable steps. It focuses on mindset, increasing income, and building multiple streams of revenue to achieve financial success.",
         price: "215.00",
-        rating: 5,
+        rating: 4.6,
+        readers: 5200,
+        topics: ["Business", "Finance"],
         bgColor: "#ebdcf2", // Light purple
         image: book5Img
     },
@@ -69,7 +78,9 @@ const featuredBooks = [
         author: "Abraham Verghese",
         description: "A sweeping saga of twin brothers born from a secret union between an Indian nun and a British surgeon in Ethiopia.",
         price: "199.00",
-        rating: 5,
+        rating: 4.9,
+        readers: 6100,
+        topics: ["Novel", "Medicine"],
         bgColor: "#f2f7d5",
         image: book6Img
     }
@@ -94,7 +105,13 @@ const FeaturedBooks = () => {
         fetchBooks();
     }, []);
 
-    const displayFeatured = fetchedFeatured.length > 0 ? fetchedFeatured : featuredBooks;
+    // Combine hardcoded mock books with fetched DB books to avoid hiding the mock featured books
+    const displayFeatured = [...featuredBooks];
+    fetchedFeatured.forEach(dbBook => {
+        if (!displayFeatured.find(b => b.title === dbBook.title)) {
+            displayFeatured.push(dbBook);
+        }
+    });
 
     const scroll = (direction) => {
         if (sliderRef.current) {
