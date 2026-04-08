@@ -58,112 +58,129 @@ const Books = () => {
             title: "Adefress",
             author: "Alemayehu werku",
             image: adfressImg,
-            category: "Novel"
+            category: "Novel",
+            price: 200.00
         },
         {
             id: 2,
             title: "Fikir Eske Mekabir",
             author: "Haddis Alemayehu",
             image: fekerEskMakaberImg,
-            category: "Novel"
+            category: "Novel",
+            price: 180.00
         },
         {
             id: 3,
             title: "The Future of the Mind",
             author: "Michio Kaku",
             image: imagePng,
-            category: "Science"
+            category: "Science",
+            price: 210.00
         },
         {
             id: 4,
             title: "Oromia",
             author: "Baalu Girma",
             image: oromiaImg,
-            category: "Novel"
+            category: "Novel",
+            price: 300.00
         },
         {
             id: 5,
             title: "Thinking, Fast and Slow",
             author: "Daniel Kahneman",
             image: ha2Img,
-            category: "Psychology"
+            category: "Psychology",
+            price: 355.00
         },
         {
             id: 6,
             title: "The Lion of Gaze",
             author: "Maaza Mengiste",
             image: lionOfGazeImg,
-            category: "Novel"
+            category: "Novel",
+            price: 190.90
         },
         {
             id: 7,
             title: "The Beautiful Things That Heaven Bears",
             author: "Dinaw Mengestu",
             image: theBeautifulImg,
-            category: "Dinaw Mengestu"
+            category: "Dinaw Mengestu",
+            price: 255.00
         },
         {
             id: 8,
             title: "Burka Zemeta",
             author: "Tasfaye Gebremedhin",
             image: burkaZemetaImg,
-            category: "Novel"
+            category: "Novel",
+            price: 199.00
+
         },
         {
             id: 9,
             title: "Wax and Gold",
             author: "Donald N. Levine",
             image: waxAndGoldImg,
-            category: "History"
+            category: "History",
+            price: 210.00
         },
         {
             id: 10,
             title: "The silent of wife",
             author: "Kerry Fisher",
             image: shoppingImg,
-            category: "Novel"
+            category: "Novel",
+            price: 240.00
         },
         {
             id: 11,
             title: "No.1 Lawyer",
             author: "james patterson & Nancy Allen",
             image: shopping2Img,
-            category: "Thriller"
+            category: "Thriller",
+            price: 260.00
         },
         {
             id: 12,
             title: "You Are 7 and Amazing",
             author: "Unknown",
             image: shoppingWebp,
-            category: "Childern"
+            category: "Childern",
+            price: 270.00
         },
         {
             id: 13,
             title: "The Sigma Male Bible",
             author: "Bud Watson",
             image: downloadImg,
-            category: "Personal development"
+            category: "Personal development",
+            price: 190.99
         },
         {
             id: 14,
             title: "The Subtle Art of Not Giving a F*ck",
             author: "Mark Manson",
             image: download1Img,
-            category: "Men’s psychology"
+            category: "Men’s psychology",
+            price: 200.00
         },
         {
             id: 15,
             title: "Hacker's Handbook",
             author: "Kline Thornton",
             image: hacker3Img,
-            category: "Technology"
+            category: "Technology",
+            price: 220.99
         },
         {
             id: 16,
             title: "The Millionaire Booklet",
             author: "Grant Cardone",
             image: millionerImg,
-            category: "Business"
+            category: "Business",
+            price: 215.00
         }
     ];
 
