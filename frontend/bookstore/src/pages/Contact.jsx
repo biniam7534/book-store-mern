@@ -59,14 +59,14 @@ const Contact = () => {
                                     <label>Name*</label>
                                     <div className="input-wrapper">
                                         <FiUser className="input-icon" />
-                                        <input type="text" placeholder="Your Name" required />
+                                        <input type="text" placeholder="       Your Name" required />
                                     </div>
                                 </div>
                                 <div className="form-group">
                                     <label>Email*</label>
                                     <div className="input-wrapper">
                                         <FiMail className="input-icon" />
-                                        <input type="email" placeholder="Your Email" required />
+                                        <input type="email" placeholder="       Your Email" required />
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@ const Contact = () => {
                                     <label>Phone (optional)</label>
                                     <div className="input-wrapper">
                                         <FiPhone className="input-icon" />
-                                        <input type="tel" placeholder="Your Phone" />
+                                        <input type="tel" placeholder="       Your Phone" />
                                     </div>
                                 </div>
                                 <div className="form-group">
