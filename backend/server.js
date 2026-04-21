@@ -38,15 +38,8 @@ app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to the BookStore API" });
 });
 
-// Lazy database connection middleware
-app.use(async (req, res, next) => {
-    try {
-        await connectDB();
-        next();
-    } catch (err) {
-        res.status(500).json({ error: "Database connection failed" });
-    }
-});
+// Connect to Database
+connectDB();
 
 // API Routes
 app.use("/api/books", bookRoutes);
